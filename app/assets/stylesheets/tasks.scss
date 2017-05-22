@@ -2,6 +2,21 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.tasks-overwiev {
+  max-width: none;
+}
+
 .task-column {
   border: 1px solid black;
+}
+
+.task {
+  border: 1px solid black;
+  border-radius: 10px;
+  margin: 0.5rem;
+  padding: 0.5rem;
+}
+
+.task--title {
+  font-size: 1.6rem;
 }
