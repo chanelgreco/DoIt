@@ -20,10 +20,12 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
-
-# Foundation Zurb
+# Foundation Zurb https://github.com/zurb/foundation-rails
 gem 'foundation-rails'
-
+# Foundation Datepicker Rails https://github.com/peeyush1234/foundation-datepicker-rails
+gem 'foundation-datepicker-rails'
+# Foundation Icon Fonts on SASS for Rails https://github.com/zaiste/foundation-icons-sass-rails
+gem 'foundation-icons-sass-rails'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
