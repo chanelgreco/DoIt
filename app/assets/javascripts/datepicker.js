@@ -1,4 +1,3 @@
-<script>
 $(function(){
 	$('#dp1').fdatepicker({
 		initialDate: '05-22-2017',
@@ -10,4 +9,3 @@ $(function(){
 		closeButton: true
 	});
 });
-</script>
