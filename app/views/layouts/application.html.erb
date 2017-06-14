@@ -12,6 +12,14 @@
   </head>
 
   <body>
+    <nav>
+      <% if current_user.nil? %>
+        <%= link_to "Login", login_path, :method => :new %>
+      <% else %>
+        Logged In as <%= current_user.name %>
+        <%= link_to "Logout", logout_path, :method => :delete %>
+      <% end %>
+    </nav>
 
     <%= yield %>
 
