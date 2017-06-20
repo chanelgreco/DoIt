@@ -1,5 +1,6 @@
 class Task < ApplicationRecord
   validates :title, :description, :priority, :status, presence: true
+  belongs_to :user
 
   enum priority: {
     "Critical" => 0,
