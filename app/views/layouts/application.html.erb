@@ -8,20 +8,47 @@
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+     <link href="https://fonts.googleapis.com/css?family=News+Cycle:400,700" rel="stylesheet">
     <%= csrf_meta_tags %>
   </head>
 
   <body>
-    <nav>
+    <!-- <nav>
       <% if current_user.nil? %>
         <%= link_to "Login", login_path, :method => :new %>
       <% else %>
         Logged In as <%= current_user.name %>
         <%= link_to "Logout", logout_path, :method => :delete %>
       <% end %>
+    </nav> -->
+
+    <nav class="top-bar">
+      <div class="top-bar-left">
+        <ul class="menu">
+          <li class="menu-text"><a href="#">Do It!</a></li>
+        </ul>
+      </div>
+      <% if current_user.nil? %>
+      <div class="top-bar-right">
+        <ul class="menu align-right">
+          <%= link_to "Login", login_path, :method => :new %>
+        </ul>
+      </div>
+      <% else %>
+      <div class="top-bar-right">
+        <ul class="menu align-right">
+          <li><a href="#">Tasks</a></li>
+          <li><a href="#">Dashboard</a></li>
+          <%= link_to "Logout", logout_path, :method => :delete %>
+        </ul>
+      </div>
+      <% end %>
     </nav>
 
-    <%= yield %>
+    <section class="main-section">
+      <%= yield %>
+    </section>
+
 
   </body>
 </html>

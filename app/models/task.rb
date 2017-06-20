@@ -11,7 +11,7 @@ class Task < ApplicationRecord
 
   enum status: {
     "To do" => 0,
-    "Doing it" => 1,
+    "Doing it..." => 1,
     "Done!" => 2
   }
 

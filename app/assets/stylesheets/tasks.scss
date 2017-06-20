@@ -2,16 +2,42 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+$color1: rgba(51, 92, 129, 1);
+$color2: rgba(57, 62, 70, 1);
+$color3: rgba(3, 181, 170, 1);
+$color4: rgba(227, 192, 211, 1);
+$color5: rgba(130, 132, 137, 1);
+
+
 .tasks-overwiev {
   max-width: none;
+  margin-top: 1.5rem;
 }
 
 .task-column {
-  border: 1px solid black;
+  color: #fff;
 }
 
+.todo {
+  background-color: $color4;
+}
+
+.doing {
+  background-color: $color1;
+  color: #fff;
+}
+
+.done {
+  background-color: $color3;
+}
+
+.task--white {
+  color: #fff;
+}
 .task-column--title {
   font-size: 2rem;
+  border-bottom: 1px solid #fff;
 }
 
 .task {

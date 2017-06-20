@@ -1,15 +1,13 @@
 body {
   background-color: #fff;
-  color: #333;
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
+  font-family: 'News Cycle', verdana, arial, helvetica, sans-serif;
+  font-size: 18px;
   line-height: 18px;
-  margin: 33px;
 }
 
 p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
+  font-family: 'News Cycle', verdana, arial, helvetica, sans-serif;
+  font-size: 18px;
   line-height: 18px;
   margin: 33px;
 }
@@ -30,6 +28,13 @@ a {
   &:hover {
     color: #fff;
     background-color: #000;
+  }
+}
+
+// So that the links in the navigation are white
+.menu {
+  a {
+    color: #fff;
   }
 }
 

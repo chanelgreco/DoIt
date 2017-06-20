@@ -2,8 +2,10 @@
 
 <h1>Tasks Board</h1>
 
-<div class="row align-spaced tasks-overwiev">
-  <article class="column task-column">
+<%= button_to 'New Task', new_task_path, method: :get, :class => "button" %>
+
+<div class="row align-justify tasks-overwiev">
+  <article class="small-4 column medium-expand task-column todo">
     <h1 class="task-column--title"><%= @tasks.statuses.keys[0] %></h1>
     <% if @current_user %>
       <% @todo.each do |task| %>
@@ -19,7 +21,7 @@
     <% end %>
   </article>
 
-  <article class="column task-column">
+  <article class="small-4 column medium-expand task-column doing">
     <h1 class="task-column--title"><%= @tasks.statuses.keys[1] %></h1>
     <% @doing.each do |task| %>
       <div class="task">
@@ -33,7 +35,7 @@
     <% end %>
   </article>
 
-  <article class="column task-column">
+  <article class="small-4 column medium-expand task-column done">
     <h1 class="task-column--title"><%= @tasks.statuses.keys[2] %></h1>
     <% @done.each do |task| %>
       <div class="task">
@@ -51,5 +53,3 @@
 
 
 <br>
-
-<%= button_to 'New Task', new_task_path, method: :get %>
