@@ -1,16 +1,19 @@
-<h1>Sessions#new</h1>
+<h3 class="sessions-title">Please Log In</h3>
 
 <%= form_tag do %>
-  <p>Please Log In</p>
-  <div class="">
-    <%= label_tag :email, "Email" %>
-    <%= text_field_tag :email, params[:email] %>
+  <div class="row align-center">
+    <div class="small-13 medium-8 large-6 column">
+      <%= label_tag :email, "Email" %>
+      <%= text_field_tag :email, params[:email] %>
+    </div>
   </div>
-  <div class="">
-    <%= label_tag :password, "Password" %>
-    <%= text_field_tag :password, params[:password] %>
+  <div class="row align-center">
+    <div class="small-13 medium-8 large-6 column">
+      <%= label_tag :password, "Password" %>
+      <%= text_field_tag :password, params[:password] %>
+    </div>
   </div>
-  <div class="">
-    <%= submit_tag "Login" %>
+  <div class="row align-center">
+    <%= submit_tag "Login", :class => "button column small-12 medium-3 large-2 sessions-btn" %>
   </div>
 <% end %>
