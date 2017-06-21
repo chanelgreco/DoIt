@@ -11,33 +11,33 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field field--long">
     <%= f.label :title %>
     <%= f.text_field :title %>
   </div>
 
-  <div class="field">
+  <div class="field field--long">
     <%= f.label :description %>
-    <%= f.text_field :description %>
+    <%= f.text_area :description %>
   </div>
 
-  <div class="field">
+  <div class="field field--short">
     <%= f.label :priority %>
     <%= f.select :priority, Task.priorities.keys %>
   </div>
 
-  <div class="field">
+  <div class="field field--short">
     <%= f.label :status %>
     <%= f.select :status, Task.statuses.keys %>
   </div>
 
-  <div class="field">
+  <div class="field field--short">
     <%= f.label :due_date %>
     <!-- <%= f.date_select :due_date %> -->
     <input type="text" class="span2" id="dp1" name="" value="">
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Save Task', class: "button"  %>
   </div>
 <% end %>
