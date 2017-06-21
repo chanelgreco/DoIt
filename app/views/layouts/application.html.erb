@@ -13,17 +13,8 @@
   </head>
 
   <body>
-    <!-- <nav>
-      <% if current_user.nil? %>
-        <%= link_to "Login", login_path, :method => :new %>
-      <% else %>
-        Logged In as <%= current_user.name %>
-        <%= link_to "Logout", logout_path, :method => :delete %>
-      <% end %>
-    </nav> -->
-
     <nav class="top-bar">
-      <div class="top-bar-left">
+      <div class="top-bar-title">
         <ul class="menu">
           <li class="menu-text"><a href="#">Do It!</a></li>
         </ul>
@@ -31,7 +22,7 @@
       <% if current_user.nil? %>
       <div class="top-bar-right">
         <ul class="menu align-right">
-          <%= link_to "Login", login_path, :method => :new %>
+          <li><%= link_to "Login", login_path, :method => :new %></li>
         </ul>
       </div>
       <% else %>
@@ -39,7 +30,7 @@
         <ul class="menu align-right">
           <li><a href="#">Tasks</a></li>
           <li><a href="#">Dashboard</a></li>
-          <%= link_to "Logout", logout_path, :method => :delete %>
+          <li><%= link_to "Logout", logout_path, :method => :delete %></li>
         </ul>
       </div>
       <% end %>

@@ -1,15 +1,13 @@
-
-
-.main-section {
-  margin: 0 33px;
+.menu-text {
+  font-size: 1.75rem;
 }
 
 // So that the right menu ends on the same vertical lign as the main-section
 .menu.align-right {
-  padding-right: 33px;
+  padding-right: 1rem;
 }
 
-// // Using this since the class Rails adds is "button_to" and not simple "button".
-// .button_to {
-//   font-size: 0.8rem;
-// }
+// Main section wrapping
+.main-section {
+  margin: 0 2rem;
+}

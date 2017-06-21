@@ -17,6 +17,8 @@ $color5: rgba(130, 132, 137, 1);
 
 .task-column {
   color: #fff;
+  min-height: 10rem;
+  margin-bottom: 1rem;
 }
 
 .todo {
@@ -45,6 +47,7 @@ $color5: rgba(130, 132, 137, 1);
   border-radius: 10px;
   margin: 0.5rem;
   padding: 0.5rem;
+  // @include flex-grid-column(30%, 1%);
 }
 
 .task--title {
