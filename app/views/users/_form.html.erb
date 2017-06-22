@@ -11,27 +11,27 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field field--short">
     <%= f.label :name %>
     <%= f.text_field :name %>
   </div>
 
-  <div class="field">
+  <div class="field field--short">
     <%= f.label :email %>
     <%= f.text_field :email %>
   </div>
 
-  <div class="field">
+  <div class="field field--short">
     <%= f.label :password %>
     <%= f.password_field :password %>
   </div>
 
-  <div class="field">
+  <div class="field field--short">
     <%= f.label :password_confirmation %>
     <%= f.password_field :password_confirmation %>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Save Account", :class => "button"%>
   </div>
 <% end %>

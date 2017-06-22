@@ -6,7 +6,6 @@ Rails.application.routes.draw do
     delete 'logout' => :destroy
   end
 
-  resources :users
+  resources :users, :tasks
   root 'tasks#index', as: 'tasks_index'
-  resources :tasks
 end
