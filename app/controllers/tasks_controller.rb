@@ -1,5 +1,6 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
+  before_action :current_user
   skip_before_action :authorize, only: [:index]
 
   # GET /tasks
@@ -18,7 +19,7 @@ class TasksController < ApplicationController
 
   # GET /tasks/new
   def new
-    @task = Task.new()
+    @task = @user.tasks.build()
   end
 
   # GET /tasks/1/edit

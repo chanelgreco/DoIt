@@ -7,7 +7,7 @@
 <div class="row align-justify tasks-overwiev">
   <article class="small-13 medium-13 large-4 column large-expand task-column todo">
     <h1 class="task-column--title"><%= @tasks.statuses.keys[0] %></h1>
-    <% if @current_user %>
+    <% if @user %>
       <% @todo.each do |task| %>
         <div class="task">
           <h1 class="task--title"><%= task.title %></h1>
