@@ -7,9 +7,15 @@ class TasksController < ApplicationController
   # GET /tasks.json
   def index
     @tasks = Task.all
-    @todo = Task.todo
-    @doing = Task.doing
-    @done = Task.done
+    if @user
+      @todo = @user.tasks.todo
+      @doing = @user.tasks.doing
+      @done = @user.tasks.done
+    else
+      @todo =  Task.todo
+      @doing = Task.doing
+      @done = Task.done
+    end
   end
 
   # GET /tasks/1
