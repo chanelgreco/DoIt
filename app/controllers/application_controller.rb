@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   protected
-  # Make sure that a user is logged in before any tasks get displayd
+  # Make sure that a user is logged in before any tasks can be created
   def authorize
     unless User.find_by(id: session[:user_id])
       redirect_to tasks_index_path, notice: "Please log in"

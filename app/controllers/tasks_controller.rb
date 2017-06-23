@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: [:show, :edit, :update, :destroy]
   before_action :current_user
+  before_action :set_task, only: [:show, :edit, :update, :destroy]
   skip_before_action :authorize, only: [:index]
 
   # GET /tasks
