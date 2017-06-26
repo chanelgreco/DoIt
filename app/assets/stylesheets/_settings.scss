@@ -57,7 +57,7 @@ $global-width: rem-calc(1200);
 $global-lineheight: 1.5;
 $foundation-palette: (
   primary: #03b5aa,
-  secondary: #335c81,
+  secondary: $color2,
   success: #03b5aa,
   warning: #e5ad35,
   alert: #cc4b37,
@@ -69,8 +69,8 @@ $medium-gray: #828489;
 $dark-gray: #393E46;
 $black: #0a0a0a;
 $white: #fefefe;
-$body-background: $white;
-$body-font-color: $dark-gray;
+$body-background: #fff;
+$body-font-color: $color2;
 $body-font-family: 'News Cycle', verdana, arial, helvetica, sans-serif;
 $body-antialiased: true;
 $global-margin: 1rem;

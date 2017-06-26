@@ -1,53 +1,53 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Tasks Board</h1>
+<h1>Tasks</h1>
 
-<%= button_to 'New Task', new_task_path, method: :get, :class => "button" %>
+<%= button_to 'New Task', new_task_path, method: :get, class: "button" %>
 
-<div class="row align-justify tasks-overwiev">
-  <article class="small-13 medium-13 large-4 column large-expand task-column todo">
+<div class="row align-justify align-top tasks-overwiev">
+  <article class="small-13 medium-13 large-4 column large-expand task-column">
     <h1 class="task-column--title"><%= @tasks.statuses.keys[0] %></h1>
     <% if @user %>
       <% @todo.each do |task| %>
-        <div class="task">
+        <div class="task todo">
           <h1 class="task--title"><%= task.title %></h1>
           <p><%= task.description %></p>
-          <p><%= task.priority %></p>
-          <p><%= task.status %></p>
-          <p><%= task.due_date %></p>
-          <p><%= link_to 'Edit', edit_task_path(task) %></p>
+          <p><strong>Priority: </strong><%= task.priority %></p>
+          <p><strong>Status: </strong><%= task.status %></p>
+          <% if task.due_date? %><p><strong>Due Date: </strong><%= task.due_date %></p><% end %>
+          <%= button_to 'Edit', edit_task_path(task), method: :get, class: "button secondary" %>
         </div>
       <% end %>
     <% end %>
   </article>
 
-  <article class="small-13 medium-13 large-4 column large-expand task-column doing">
+  <article class="small-13 medium-13 large-4 column large-expand task-column">
     <h1 class="task-column--title"><%= @tasks.statuses.keys[1] %></h1>
     <% if @user %>
       <% @doing.each do |task| %>
-        <div class="task">
+        <div class="task doing">
           <h1 class="task--title"><%= task.title %></h1>
           <p><%= task.description %></p>
-          <p><%= task.priority %></p>
-          <p><%= task.status %></p>
-          <p><%= task.due_date %></p>
-          <p><%= link_to 'Edit', edit_task_path(task) %></p>
+          <p><strong>Priority: </strong><%= task.priority %></p>
+          <p><strong>Status: </strong><%= task.status %></p>
+          <% if task.due_date? %><p><strong>Due Date: </strong><%= task.due_date %></p><% end %>
+          <%= button_to 'Edit', edit_task_path(task), method: :get, class: "button secondary" %>
         </div>
       <% end %>
     <% end %>
   </article>
 
-  <article class="small-13 medium-13 large-4 column large-expand task-column done">
+  <article class="small-13 medium-13 large-4 column large-expand task-column">
     <h1 class="task-column--title"><%= @tasks.statuses.keys[2] %></h1>
     <% if @user %>
       <% @done.each do |task| %>
-        <div class="task">
+        <div class="task done">
           <h1 class="task--title"><%= task.title %></h1>
           <p><%= task.description %></p>
-          <p><%= task.priority %></p>
-          <p><%= task.status %></p>
-          <p><%= task.due_date %></p>
-          <p><%= link_to 'Edit', edit_task_path(task) %></p>
+          <p><strong>Priority: </strong><%= task.priority %></p>
+          <p><strong>Status: </strong><%= task.status %></p>
+          <% if task.due_date? %><p><strong>Due Date: </strong><%= task.due_date %></p><% end %>
+          <%= button_to 'Edit', edit_task_path(task), method: :get, class: "button secondary" %>
         </div>
       <% end %>
     <% end %>
