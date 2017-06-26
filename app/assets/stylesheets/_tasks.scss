@@ -2,14 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
-$color1: rgba(51, 92, 129, 1);
-$color2: rgba(57, 62, 70, 1);
-$color3: rgba(3, 181, 170, 1);
-$color4: rgba(227, 192, 211, 1);
-$color5: rgba(130, 132, 137, 1);
-
-
 .tasks-overwiev {
   max-width: none;
   margin-top: 1.5rem;
@@ -19,6 +11,7 @@ $color5: rgba(130, 132, 137, 1);
   color: #fff;
   min-height: 10rem;
   margin-bottom: 1rem;
+  border-radius: $global-radius;
 }
 
 .todo {
@@ -44,7 +37,7 @@ $color5: rgba(130, 132, 137, 1);
 
 .task {
   border: 1px solid black;
-  border-radius: 10px;
+  border-radius: $global-radius;
   margin: 0.5rem;
   padding: 0.5rem;
   // @include flex-grid-column(30%, 1%);
