@@ -1,3 +1,3 @@
 # README
 
-Clone the repo and run 'bundle install' in your terminal.
+Clone the repo and first run 'bundle install' followed by 'bin/rails db:migrate' in your terminal.
