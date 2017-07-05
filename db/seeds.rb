@@ -7,3 +7,38 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 #users = User.create([{ name: 'Chanel Greco', email: 'chanel.greco@simplificator.com', password_digest: '1234'])
+
+# Destroy all users and tasks when loading this file
+User.destroy_all
+Task.destroy_all
+
+User.create({
+  name: "test_user",
+  email: "test@test.ch",
+  password_digest: BCrypt::Password.create("1234"),
+  })
+
+Task.create([{
+  title: "Testing to do",
+  description: "Does this appear in the to do section?",
+  priority: 0,
+  status: 0,
+  due_date: Date.new(2017, 7, 30),
+  user_id: User.first.id
+  },
+  {
+  title: "Testing doing",
+  description: "Does this appear in the doing section?",
+  priority: 1,
+  status: 1,
+  due_date: Date.new(2017, 8, 30),
+  user_id: User.first.id
+},
+{
+  title: "Testing done",
+  description: "Does this appear in the done section?",
+  priority: 2,
+  status: 2,
+  due_date: Date.new(2017, 8, 15),
+  user_id: User.first.id
+}])
