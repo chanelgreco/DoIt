@@ -13,7 +13,10 @@ class ApplicationController < ActionController::Base
   private
   # Helper to display the current logged in user
   def current_user
-    @user ||= User.find(session[:user_id]) if session[:user_id]
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+    @user = @current_user
+  rescue ActiveRecord::RecordNotFound
+    session.clear
   end
 
   helper_method :current_user
