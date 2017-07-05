@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   before_action :current_user, only: [:show, :edit, :update, :destroy]
   skip_before_action :authorize, only: [:new, :show, :create]
-  after_action :current_user, only: [:create]
 
   # GET /users
   # GET /users.json

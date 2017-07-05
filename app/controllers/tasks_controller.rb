@@ -1,5 +1,4 @@
 class TasksController < ApplicationController
-  before_action :current_user
   before_action :set_task, only: [:show, :edit, :update, :destroy]
   skip_before_action :authorize, only: [:index]
 
@@ -7,10 +6,10 @@ class TasksController < ApplicationController
   # GET /tasks.json
   def index
     @tasks = Task.all
-    if @user
-      @todo = @user.tasks.todo
-      @doing = @user.tasks.doing
-      @done = @user.tasks.done
+    if current_user
+      @todo = current_user.tasks.todo
+      @doing = current_user.tasks.doing
+      @done = current_user.tasks.done
     else
       @todo =  Task.todo
       @doing = Task.doing

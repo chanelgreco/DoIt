@@ -39,3 +39,4 @@ Thumbs.db
 db/development.sqlite3
 tmp/
 database.yml
+.byebug_history
