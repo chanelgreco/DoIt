@@ -24,7 +24,7 @@ class TasksController < ApplicationController
 
   # GET /tasks/new
   def new
-    @task = @user.tasks.build()
+    @task = current_user.tasks.build()
   end
 
   # GET /tasks/1/edit
@@ -34,7 +34,7 @@ class TasksController < ApplicationController
   # POST /tasks
   # POST /tasks.json
   def create
-    @task = @user.tasks.create(task_params)
+    @task = current_user.tasks.create(task_params)
 
     respond_to do |format|
       if @task.save
