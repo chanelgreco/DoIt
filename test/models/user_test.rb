@@ -3,32 +3,32 @@ require 'test_helper'
 class UserTest < ActiveSupport::TestCase
 
   def setup
-    @desiree, @roger = users(:desiree, :roger)
+    @valid, @invalid = users(:valid, :invalid)
+    @hans = User.create(name: "Hans", email: "email@email.ch")
   end
 
   test "valid user" do
-    assert @roger.valid?
+    assert @valid.valid?
   end
 
   test "invalid without name" do
-    @roger.name = nil
-    refute @roger.valid? "saved user without a name"
-    assert_not_nil @roger.errors[:name], "no validation error for name present"
+    @valid.name = nil
+    refute @valid.valid? "saved user without a name"
+    assert_not_nil @valid.errors[:name], "no validation error for name present"
   end
 
   test "invalid without email" do
-    @roger.email = nil
-    refute @roger.valid?
-    assert_not_nil @roger.errors[:email]
+    @valid.email = nil
+    refute @valid.valid?
+    assert_not_nil @valid.errors[:email]
   end
 
-  # test "name_email" do
-  #   @roger.name_email
-  #   byebug
-  #   assert_not_nil @name_email
-  # end
+  test "name_email" do
+    assert_equal 'Hansemail@email.ch', User.name_email_2(@hans)
+    assert_equal 'Hansemail@email.ch', @hans.name_email
+  end
 
   test "tasks" do
-    assert_equal 2, @roger.tasks.size
+    assert_equal 2, @valid.tasks.size
   end
 end

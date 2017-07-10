@@ -4,8 +4,11 @@ class User < ApplicationRecord
   has_secure_password
   has_many :tasks, dependent: :destroy
 
-  # def name_email
-  #   user = User.new
-  #   return @name_email = user.name + user.email
-  # end
+  def self.name_email_2(user)
+    user.name_email
+  end
+
+  def name_email
+    name + email
+  end
 end
