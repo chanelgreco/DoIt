@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to tasks_index_path
     else
-      redirect_to login_url, alert: "Invalid user and password combination"
+      render :new
     end
   end
 
