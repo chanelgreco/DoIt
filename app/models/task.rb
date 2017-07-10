@@ -15,6 +15,7 @@ class Task < ApplicationRecord
     "Done!" => 2
   }
 
+
   # Scope to show the tasks filtered by their status.
   scope :todo, -> { where(status: 0) }
   scope :doing, -> { where(status: 1) }
