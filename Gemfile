@@ -24,8 +24,6 @@ gem 'coffee-rails', '~> 4.2'
 # gem 'therubyracer', platforms: :ruby
 # Foundation Zurb https://github.com/zurb/foundation-rails
 gem 'foundation-rails'
-# Foundation Datepicker Rails https://github.com/peeyush1234/foundation-datepicker-rails
-gem 'foundation-datepicker-rails'
 # Foundation Icon Fonts on SASS for Rails https://github.com/zaiste/foundation-icons-sass-rails
 gem 'foundation-icons-sass-rails'
 # Use jquery as the JavaScript library

@@ -21,12 +21,4 @@ class Task < ApplicationRecord
   scope :doing, -> { where(status: 1) }
   scope :done, -> { where(status: 2) }
 
-  # todo = Task.where("status = '2'")
-
-  # def todo
-  #   return Task.where(status:  2)
-  # end
-
-  #Order.select("date(created_at) as ordered_date, sum(price) as total_price").group("date(created_at)")
-
 end
