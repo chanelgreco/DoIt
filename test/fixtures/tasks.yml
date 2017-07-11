@@ -6,11 +6,11 @@ valid_1:
   priority: 1
   status: 2
   due_date: 2017-08-20
-  user: valid
+  user: user
 
 valid_2:
   title: Rails
   description: Learning how Rails works
   priority: 2
   status: 0
-  user: valid
+  user: user
