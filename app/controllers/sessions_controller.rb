@@ -8,8 +8,9 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:email])
     if user.try(:authenticate, params[:password])
       session[:user_id] = user.id
-      redirect_to tasks_index_path
+      redirect_to tasks_index_path, notice: "Login successfull"
     else
+      flash.now[:error] = "Login was not successfull"
       render :new
     end
   end

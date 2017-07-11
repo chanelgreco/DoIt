@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-valid:
+user:
   name: Desirée Reyes
   email: d.r@gmail.com
   password_digest: <%= BCrypt::Password.create('secret') %>
 
-invalid:
-  name: Roger Moore
+user_2:
+  name: Roger Moorge
   email: r.m@gmail.com
   password_digest: <%= BCrypt::Password.create('secret') %>
