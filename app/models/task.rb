@@ -21,4 +21,7 @@ class Task < ApplicationRecord
   scope :doing, -> { where(status: 1) }
   scope :done, -> { where(status: 2) }
 
+  # Scope to show overdue tasks
+  scope :overdue, -> { where("due_date <= ?", Date.today ) }
+
 end

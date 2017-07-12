@@ -13,4 +13,5 @@ valid_2:
   description: Learning how Rails works
   priority: 2
   status: 0
+  due_date: 2017-07-01
   user: user

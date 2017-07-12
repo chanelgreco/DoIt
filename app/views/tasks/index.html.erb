@@ -11,6 +11,10 @@
       <% @todo.each do |task| %>
         <div class="task todo">
           <h1 class="task--title"><%= task.title %></h1>
+          <% if @todo_overdue %>
+          byebug
+            <span class="overdue">Overdue!</span>
+          <% end %>
           <p><%= task.description %></p>
           <p><strong>Priority: </strong><%= task.priority %></p>
           <p><strong>Status: </strong><%= task.status %></p>

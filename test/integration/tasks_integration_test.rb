@@ -2,7 +2,7 @@ require 'test_helper'
 
 class TasksControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @task = tasks(:valid_1)
+    @task, @task_overdue = tasks(:valid_1, :valid_2)
     @user = users(:user)
   end
 
@@ -20,6 +20,16 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
     get tasks_index_url
     assert_response :success
     assert_select "h1.task--title", false
+  end
+
+  test "logged in user should see tasks with a seperate tag when overdue" do
+    # log in
+    sign_in_as(@user)
+    assert_equal "Login successfull", flash[:notice]
+
+    get tasks_index_url
+    assert_response :success
+    assert_select "span.overdue", "Overdue!"
   end
 
 
