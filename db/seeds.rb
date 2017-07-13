@@ -39,6 +39,7 @@ tasks = Task.first_or_create!([{
   user_id: test_user.id
 }])
 
-dashboard = Dashboard.first_or_create!({
+dashboard = Dashboard.update({
+  user_id: test_user.id,
   overdue: true
   })
