@@ -16,4 +16,9 @@ class TaskTest < ActiveSupport::TestCase
   test "overdue tasks scope" do
     assert_equal 1, Task.overdue.count
   end
+
+  test "check if task is overdue" do
+    assert_not @valid_1.overdue?
+    assert @valid_2.overdue?
+  end
 end

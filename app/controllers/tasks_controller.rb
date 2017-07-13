@@ -8,7 +8,6 @@ class TasksController < ApplicationController
     @tasks = Task.all
     if current_user
       @todo = current_user.tasks.todo
-      @todo_overdue = @todo.overdue
       @doing = current_user.tasks.doing
       @done = current_user.tasks.done
     else

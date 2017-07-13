@@ -29,7 +29,7 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
 
     get tasks_index_url
     assert_response :success
-    assert_select "span.overdue", "Overdue!"
+    assert_select "span.task__overdue", "Overdue!"
   end
 
 
