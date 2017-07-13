@@ -1,7 +1,6 @@
 class DashboardController < ApplicationController
-  def index
-  end
 
+  # GET /dashboard
   def show
   end
 
