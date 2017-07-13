@@ -38,3 +38,7 @@ tasks = Task.first_or_create!([{
   due_date: Date.new(2017, 8, 15),
   user_id: test_user.id
 }])
+
+dashboard = Dashboard.first_or_create!({
+  overdue: true
+  })

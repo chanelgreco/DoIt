@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170710061334) do
+ActiveRecord::Schema.define(version: 20170713134221) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "dashboards", force: :cascade do |t|
+    t.boolean  "overdue",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_dashboards_on_user_id", using: :btree
+  end
 
   create_table "tasks", force: :cascade do |t|
     t.string   "title",       null: false
@@ -35,4 +43,5 @@ ActiveRecord::Schema.define(version: 20170710061334) do
     t.datetime "updated_at",      null: false
   end
 
+  add_foreign_key "dashboards", "users"
 end
