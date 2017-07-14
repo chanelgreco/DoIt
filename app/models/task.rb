@@ -17,12 +17,12 @@ class Task < ApplicationRecord
 
 
   # Scope to show the tasks filtered by their status.
-  scope :todo, -> { where(status: 0) }
-  scope :doing, -> { where(status: 1) }
-  scope :done, -> { where(status: 2) }
+  scope :todo, -> { where(status: 0).order(:due_date) }
+  scope :doing, -> { where(status: 1).order(:due_date) }
+  scope :done, -> { where(status: 2).order(:due_date) }
 
   # Scope to show overdue tasks
-  scope :overdue, -> { where("due_date <= ?", Date.today ) }
+  scope :overdue, -> { where("due_date <= ?", Date.today ).order(:due_date) }
 
   # Method to check if task is overdue
   def overdue?
