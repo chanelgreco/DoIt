@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   controller :dashboard do
     get 'dashboard' => :show
     get 'dashboard/edit' => :edit
-    patch 'dashboard/update' => :update
+    patch 'dashboard' => :update
   end
 
   root 'tasks#index', as: 'tasks_index'
