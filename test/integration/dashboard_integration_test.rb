@@ -4,13 +4,14 @@ class DashboardControllerTest < ActionDispatch::IntegrationTest
 
   setup do
     @user = users(:user)
+    @dashboard = dashboards(:dashboard_1)
   end
 
   test "logged in user should get dashboard" do
     # log in
     sign_in_as(@user)
     assert_equal "Login successfull", flash[:notice]
-    
+
     get dashboard_url
     assert_response :success
     assert_select "h1", "Dashboard"
@@ -23,17 +24,27 @@ class DashboardControllerTest < ActionDispatch::IntegrationTest
   end
 
 
+  test "logged in user should see the overdue tasks on the dashboard page" do
+    # log in
+    sign_in_as(@user)
+    assert_equal "Login successfull", flash[:notice]
+
+    get dashboard_url
+    assert_select "h2", "Overdue Tasks"
+  end
+
+
   test "logged in user should get edit page" do
     # log in
     sign_in_as(@user)
     assert_equal "Login successfull", flash[:notice]
 
-    get edit_dashboard_url, params { id}
+    get dashboard_edit_url
     assert_response :success
   end
 
   test "not logged in user should get redirected from edit dashboard to tasks index" do
-    get edit_dashboard_url
+    get dashboard_edit_url
     assert_redirected_to tasks_index_url
     assert_equal "Please log in", flash[:notice]
   end
@@ -44,12 +55,12 @@ class DashboardControllerTest < ActionDispatch::IntegrationTest
     sign_in_as(@user)
     assert_equal "Login successfull", flash[:notice]
 
-    post dashboard_url
+    patch dashboard_url(@dashboard)
     assert_response :success
   end
 
   test "not logged in user should be redirected from update dashboard to tasks index" do
-    post dashboard_url
+    patch dashboard_edit_url(@dashboard)
     assert_redirected_to tasks_index_url
     assert_equal "Please log in", flash[:notice]
   end
