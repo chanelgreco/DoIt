@@ -1,17 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-valid_1:
+learn_ruby:
   title: Learn Ruby
   description: Trying to learn to code in Ruby
   priority: 1
   status: 2
   due_date: 2017-08-20
-  user: user
+  user: desiree
 
-valid_2:
+learn_rails:
   title: Rails
   description: Learning how Rails works
   priority: 2
   status: 0
   due_date: 2017-07-01
-  user: user
+  user: desiree

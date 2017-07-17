@@ -2,13 +2,13 @@ require 'test_helper'
 
 class TasksControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @task, @task_overdue = tasks(:valid_1, :valid_2)
-    @user = users(:user)
+    @learn_ruby, @learn_rails = tasks(:learn_ruby, :learn_rails)
+    @desiree = users(:desiree)
   end
 
   test "logged in user should get index containing tasks" do
     # log in
-    sign_in_as(@user)
+    sign_in_as(@desiree)
     assert_equal "Login successfull", flash[:notice]
 
     get tasks_index_url
@@ -24,7 +24,7 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
 
   test "logged in user should see tasks with a seperate tag when overdue" do
     # log in
-    sign_in_as(@user)
+    sign_in_as(@desiree)
     assert_equal "Login successfull", flash[:notice]
 
     get tasks_index_url
@@ -35,7 +35,7 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
 
   test "logged in user should get new" do
     # log in
-    sign_in_as(@user)
+    sign_in_as(@desiree)
     assert_equal "Login successfull", flash[:notice]
 
     get new_task_url
@@ -51,7 +51,7 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
 
   test "logged in user should create task" do
     # log in
-    sign_in_as(@user)
+    sign_in_as(@desiree)
     assert_equal "Login successfull", flash[:notice]
 
     assert_difference('Task.count') do
@@ -69,15 +69,15 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
 
   test "logged in user should show task" do
     # log in
-    sign_in_as(@user)
+    sign_in_as(@desiree)
     assert_equal "Login successfull", flash[:notice]
 
-    get task_url(@task)
+    get task_url(@learn_ruby)
     assert_response :success
   end
 
   test "not logged in user should be redirected from show task to task index" do
-    get task_url(@task)
+    get task_url(@learn_ruby)
     assert_redirected_to tasks_index_url
     assert_equal "Please log in", flash[:notice]
   end
@@ -85,15 +85,15 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
 
   test "logged in user should get edit" do
     # log in
-    sign_in_as(@user)
+    sign_in_as(@desiree)
     assert_equal "Login successfull", flash[:notice]
 
-    get edit_task_url(@task)
+    get edit_task_url(@learn_ruby)
     assert_response :success
   end
 
   test "not logged in user should get redirected from task edit to task index" do
-    get edit_task_url(@task)
+    get edit_task_url(@learn_ruby)
     assert_redirected_to tasks_index_url
     assert_equal "Please log in", flash[:notice]
   end
@@ -101,15 +101,15 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
 
   test "logged in user should update task" do
     # log in
-    sign_in_as(@user)
+    sign_in_as(@desiree)
     assert_equal "Login successfull", flash[:notice]
 
-    patch task_url(@task), params: { task: { description: @task.description, due_date: @task.due_date, priority: @task.priority, status: @task.status, title: @task.title } }
-    assert_redirected_to task_url(@task)
+    patch task_url(@learn_ruby), params: { task: { description: @learn_ruby.description, due_date: @learn_ruby.due_date, priority: @learn_ruby.priority, status: @learn_ruby.status, title: @learn_ruby.title } }
+    assert_redirected_to task_url(@learn_ruby)
   end
 
   test "not logged in user should be redirected from update task to task index" do
-    patch task_url(@task), params: { task: { description: @task.description, due_date: @task.due_date, priority: @task.priority, status: @task.status, title: @task.title } }
+    patch task_url(@learn_ruby), params: { task: { description: @learn_ruby.description, due_date: @learn_ruby.due_date, priority: @learn_ruby.priority, status: @learn_ruby.status, title: @learn_ruby.title } }
     assert_redirected_to tasks_index_url
     assert_equal "Please log in", flash[:notice]
   end
@@ -117,11 +117,11 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
 
   test "logged in user should destroy task" do
     # log in
-    sign_in_as(@user)
+    sign_in_as(@desiree)
     assert_equal "Login successfull", flash[:notice]
 
     assert_difference('Task.count', -1) do
-      delete task_url(@task)
+      delete task_url(@learn_ruby)
     end
 
     assert_redirected_to tasks_url
@@ -129,7 +129,7 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
 
   test "not logged in user should be redirected from destroy task to task index" do
     assert_no_difference('Task.count') do
-      delete task_url(@task)
+      delete task_url(@learn_ruby)
     end
 
     assert_redirected_to tasks_index_url

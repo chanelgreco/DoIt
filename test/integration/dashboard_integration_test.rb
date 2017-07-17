@@ -3,13 +3,13 @@ require 'test_helper'
 class DashboardControllerTest < ActionDispatch::IntegrationTest
 
   setup do
-    @user = users(:user)
-    @dashboard = dashboards(:dashboard_1)
+    @desiree = users(:desiree)
+    @dashboard = dashboards(:dashboard)
   end
 
   test "logged in user should get dashboard" do
     # log in
-    sign_in_as(@user)
+    sign_in_as(@desiree)
     assert_equal "Login successfull", flash[:notice]
 
     get dashboard_url
@@ -26,7 +26,7 @@ class DashboardControllerTest < ActionDispatch::IntegrationTest
 
   test "logged in user should see the overdue tasks on the dashboard page" do
     # log in
-    sign_in_as(@user)
+    sign_in_as(@desiree)
     assert_equal "Login successfull", flash[:notice]
 
     get dashboard_url
@@ -36,7 +36,7 @@ class DashboardControllerTest < ActionDispatch::IntegrationTest
 
   test "logged in user should get edit page" do
     # log in
-    sign_in_as(@user)
+    sign_in_as(@desiree)
     assert_equal "Login successfull", flash[:notice]
 
     get dashboard_edit_url
@@ -52,7 +52,7 @@ class DashboardControllerTest < ActionDispatch::IntegrationTest
 
   test "logged in user should update the dashboard" do
     # log in
-    sign_in_as(@user)
+    sign_in_as(@desiree)
     assert_equal "Login successfull", flash[:notice]
 
     patch dashboard_url, params: { dashboard: { overdue: "0" } }

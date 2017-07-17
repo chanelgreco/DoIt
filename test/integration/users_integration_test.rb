@@ -2,7 +2,7 @@ require 'test_helper'
 
 class UsersControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @user = users(:user)
+    @desiree = users(:desiree)
   end
 
   test "should prompt for login" do
@@ -13,7 +13,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
 
   test "logged in user should get index" do
     # log in
-    sign_in_as(@user)
+    sign_in_as(@desiree)
     assert_equal "Login successfull", flash[:notice]
 
     # access example.com/users
@@ -44,49 +44,49 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
 
 
   test "should show user" do
-    get user_url(@user)
+    get user_url(@desiree)
     assert_response :success
   end
 
 
   test "logged in user should get edit" do
     # log in
-    sign_in_as(@user)
+    sign_in_as(@desiree)
     assert_equal "Login successfull", flash[:notice]
 
     # go to example.com/users/:id/edit
-    get edit_user_url(@user)
+    get edit_user_url(@desiree)
     assert_response :success
   end
 
   test "not logged in users should get redirected from users edit to tasks index" do
-    get edit_user_url(@user)
+    get edit_user_url(@desiree)
     assert_redirected_to tasks_index_path
   end
 
 
   test "logged in user should update user" do
     # log in
-    sign_in_as(@user)
+    sign_in_as(@desiree)
     assert_equal "Login successfull", flash[:notice]
 
-    patch user_url(@user), params: { user: { email: @user.email, name: @user.name, password: 'secret', password_confirmation: 'secret' } }
-    assert_redirected_to user_url(@user)
+    patch user_url(@desiree), params: { user: { email: @desiree.email, name: @desiree.name, password: 'secret', password_confirmation: 'secret' } }
+    assert_redirected_to user_url(@desiree)
   end
 
   test "not logged in user should get redirected from users update to tasks index" do
-    patch user_url(@user), params: { user: { email: @user.email, name: @user.name, password: 'secret', password_confirmation: 'secret' } }
+    patch user_url(@desiree), params: { user: { email: @desiree.email, name: @desiree.name, password: 'secret', password_confirmation: 'secret' } }
     assert_redirected_to tasks_index_path
   end
 
 
   test "logged in user should destroy user" do
     # log in
-    sign_in_as(@user)
+    sign_in_as(@desiree)
     assert_equal "Login successfull", flash[:notice]
 
     assert_difference('User.count', -1) do
-      delete user_url(@user)
+      delete user_url(@desiree)
     end
     assert_equal "User was successfully destroyed.", flash[:notice]
     assert_redirected_to users_url
@@ -94,7 +94,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
 
   test "not logged in user should get redirected from destroy user to tasks index" do
     assert_no_difference('User.count') do
-      delete user_url(@user)
+      delete user_url(@desiree)
     end
     assert_redirected_to tasks_index_path
   end

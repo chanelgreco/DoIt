@@ -3,24 +3,24 @@ require 'test_helper'
 class UserTest < ActiveSupport::TestCase
 
   def setup
-    @valid = users(:user)
+    @desiree = users(:desiree)
     @hans = User.create(name: "Hans", email: "email@email.ch")
   end
 
   test "valid user" do
-    assert @valid.valid?
+    assert @desiree.valid?
   end
 
   test "invalid without name" do
-    @valid.name = nil
-    refute @valid.valid? "saved user without a name"
-    assert_not_nil @valid.errors[:name], "no validation error for name present"
+    @desiree.name = nil
+    refute @desiree.valid? "saved user without a name"
+    assert_not_nil @desiree.errors[:name], "no validation error for name present"
   end
 
   test "invalid without email" do
-    @valid.email = nil
-    refute @valid.valid?
-    assert_not_nil @valid.errors[:email]
+    @desiree.email = nil
+    refute @desiree.valid?
+    assert_not_nil @desiree.errors[:email]
   end
 
   test "name_email" do
@@ -29,6 +29,6 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "tasks" do
-    assert_equal 2, @valid.tasks.size
+    assert_equal 2, @desiree.tasks.size
   end
 end

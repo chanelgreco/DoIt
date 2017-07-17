@@ -2,7 +2,7 @@ require 'test_helper'
 
 class SessionsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @user = users(:user)
+    @desiree = users(:desiree)
   end
 
   test "should get new" do
@@ -13,7 +13,7 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
   test "should get create" do
     post login_url
     # log in
-    sign_in_as(@user)
+    sign_in_as(@desiree)
     assert_equal "Login successfull", flash[:notice]
   end
 

@@ -2,7 +2,7 @@ require 'test_helper'
 
 class DashboardTest < ActiveSupport::TestCase
   setup do
-    @dashboard = dashboards(:dashboard_1)
+    @dashboard = dashboards(:dashboard)
   end
 
   test "dashboard references the correct user" do

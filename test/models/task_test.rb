@@ -2,15 +2,15 @@ require 'test_helper'
 
 class TaskTest < ActiveSupport::TestCase
   setup do
-    @valid_1, @valid_2 = tasks(:valid_1, :valid_2)
+    @learn_ruby, @learn_rails = tasks(:learn_ruby, :learn_rails)
   end
 
   test "status valid" do
-    assert_equal "Done!", @valid_1.status
+    assert_equal "Done!", @learn_ruby.status
   end
 
   test "priority valid" do
-    assert_equal "Important", @valid_1.priority
+    assert_equal "Important", @learn_ruby.priority
   end
 
   test "overdue tasks scope" do
@@ -18,7 +18,7 @@ class TaskTest < ActiveSupport::TestCase
   end
 
   test "check if task is overdue" do
-    assert_not @valid_1.overdue?
-    assert @valid_2.overdue?
+    assert_not @learn_ruby.overdue?
+    assert @learn_rails.overdue?
   end
 end
