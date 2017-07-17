@@ -4,7 +4,7 @@ class DashboardController < ApplicationController
   def show
     # initial_dashboard
     set_dashboard
-    @tasks_overdue = Task.overdue
+    @tasks_overdue = current_user.tasks.overdue
   end
 
   # GET /dashboard/edit

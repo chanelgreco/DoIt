@@ -31,4 +31,9 @@ class UserTest < ActiveSupport::TestCase
   test "tasks" do
     assert_equal 2, @desiree.tasks.size
   end
+
+  test "initialize dashboard gets called" do
+    @markus = User.create(name: "Markus", email: "markus@test.ch", password: "1234")
+    assert_not_nil @markus.dashboard
+  end
 end
