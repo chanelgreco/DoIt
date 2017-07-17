@@ -10,16 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170619082422) do
+ActiveRecord::Schema.define(version: 20170717091910) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "dashboards", force: :cascade do |t|
+    t.boolean  "overdue",    default: true, null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_dashboards_on_user_id", using: :btree
+  end
+
   create_table "tasks", force: :cascade do |t|
-    t.string   "title"
-    t.string   "description"
-    t.integer  "priority"
-    t.integer  "status"
+    t.string   "title",       null: false
+    t.string   "description", null: false
+    t.integer  "priority",    null: false
+    t.integer  "status",      null: false
     t.date     "due_date"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
@@ -28,11 +36,12 @@ ActiveRecord::Schema.define(version: 20170619082422) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "name"
-    t.string   "email"
-    t.string   "password_digest"
+    t.string   "name",            null: false
+    t.string   "email",           null: false
+    t.string   "password_digest", null: false
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
 
+  add_foreign_key "dashboards", "users"
 end

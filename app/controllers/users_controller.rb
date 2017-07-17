@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   #before_action :current_user, only: [:show, :edit, :update, :destroy]
-  skip_before_action :authorize, only: [:new, :show, :create]
+  skip_before_action :authorize, only: [:new, :create]
 
   # GET /users
   # GET /users.json
@@ -30,7 +30,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        format.html { redirect_to tasks_index_path, notice: 'User was successfully created. Please log in.' }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
@@ -57,6 +57,7 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
+    set_user
     @user.destroy
     respond_to do |format|
       format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }

@@ -7,5 +7,12 @@ Rails.application.routes.draw do
   end
 
   resources :users, :tasks
+
+  controller :dashboard do
+    get 'dashboard' => :show
+    get 'dashboard/edit' => :edit
+    patch 'dashboard' => :update
+  end
+
   root 'tasks#index', as: 'tasks_index'
 end

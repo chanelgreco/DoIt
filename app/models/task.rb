@@ -15,17 +15,21 @@ class Task < ApplicationRecord
     "Done!" => 2
   }
 
+
   # Scope to show the tasks filtered by their status.
-  scope :todo, -> { where(status: 0) }
-  scope :doing, -> { where(status: 1) }
-  scope :done, -> { where(status: 2) }
+  scope :todo, -> { where(status: 0).order(:due_date) }
+  scope :doing, -> { where(status: 1).order(:due_date) }
+  scope :done, -> { where(status: 2).order(:due_date) }
 
-  # todo = Task.where("status = '2'")
+  # Scope to show overdue tasks with the status "To do" or "Doing it..."
+  scope :overdue, -> { where(status: [0, 1]).where("due_date <= ?", Date.today ).order(:due_date) }
 
-  # def todo
-  #   return Task.where(status:  2)
-  # end
+  # Method to check if task is overdue
+  def overdue?
+    self.due_date <= Date.today
+  end
 
-  #Order.select("date(created_at) as ordered_date, sum(price) as total_price").group("date(created_at)")
+  # Scope to show upcoming tasks with the status "To do" or "Doing it..."
+  scope :upcoming, -> { where(status: [0, 1]).where(due_date: (Date.current)..Date.current+7).order(:due_date).limit(6) }
 
 end

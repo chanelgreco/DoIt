@@ -1,15 +1,25 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  title: MyString
-  description: MyString
+learn_ruby:
+  title: Learn Ruby
+  description: Trying to learn to code in Ruby
   priority: 1
-  status: MyString
-  due_date: 2017-05-20
+  status: 2
+  due_date: <%= (Date.tomorrow).to_s(:db) %>
+  user: desiree
 
-two:
-  title: MyString
-  description: MyString
-  priority: 1
-  status: MyString
-  due_date: 2017-05-20
+learn_rails:
+  title: Rails
+  description: Learning how Rails works
+  priority: 2
+  status: 0
+  due_date: <%= (Date.yesterday).to_s(:db) %>
+  user: desiree
+
+read_code:
+  title: Read code
+  description: Master how to read code
+  priority: 0
+  status: 1
+  due_date: <%= (Date.tomorrow).to_s(:db) %>
+  user: roger

@@ -63,7 +63,6 @@ GEM
     erubis (2.7.0)
     execjs (2.7.0)
     ffi (1.9.18)
-    foundation-datepicker-rails (0.0.2)
     foundation-icons-sass-rails (3.0.0)
       railties (>= 3.1.1)
       sass-rails (>= 3.1.1)
@@ -180,7 +179,6 @@ DEPENDENCIES
   better_errors
   byebug
   coffee-rails (~> 4.2)
-  foundation-datepicker-rails
   foundation-icons-sass-rails
   foundation-rails
   jbuilder (~> 2.5)
