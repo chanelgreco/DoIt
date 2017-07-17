@@ -3,7 +3,7 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
   has_secure_password
   has_many :tasks, dependent: :destroy
-  has_one :dashboard
+  has_one :dashboard, dependent: :destroy
 
   def self.name_email_2(user)
     user.name_email
