@@ -4,7 +4,6 @@ class DashboardController < ApplicationController
   def show
     # initial_dashboard
     set_dashboard
-    byebug
     @tasks_overdue = Task.overdue
   end
 
@@ -13,13 +12,12 @@ class DashboardController < ApplicationController
     set_dashboard
   end
 
-  # POST /dashboard/update
+  # PATCH /dashboard/update
   def update
     set_dashboard
-
     respond_to do |format|
       if @dashboard.update(dashboard_params)
-        format.html { redirect_to @dashboard, notice: 'Your dashboard was successfully updated.' }
+        format.html { redirect_to dashboard_url, notice: 'Your dashboard was successfully updated.' }
         format.json { render :show, status: :ok, location: @dashboard }
       else
         format.html { render :edit }

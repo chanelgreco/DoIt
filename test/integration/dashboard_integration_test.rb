@@ -55,12 +55,15 @@ class DashboardControllerTest < ActionDispatch::IntegrationTest
     sign_in_as(@user)
     assert_equal "Login successfull", flash[:notice]
 
-    patch dashboard_url(@dashboard)
+    patch dashboard_url, params: { dashboard: { overdue: "0" } }
+    assert_redirected_to dashboard_url
+    follow_redirect!
     assert_response :success
+    assert_equal "Your dashboard was successfully updated.", flash[:notice]
   end
 
   test "not logged in user should be redirected from update dashboard to tasks index" do
-    patch dashboard_edit_url(@dashboard)
+    patch dashboard_url
     assert_redirected_to tasks_index_url
     assert_equal "Please log in", flash[:notice]
   end

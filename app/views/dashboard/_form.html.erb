@@ -1,4 +1,4 @@
-<%= form_for(dashboard) do |f| %>
+<%= form_for(dashboard, url: dashboard_url) do |f| %>
   <% if dashboard.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(dashboard.errors.count, "error") %> prohibited this user from being saved:</h2>
