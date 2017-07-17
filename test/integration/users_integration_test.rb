@@ -39,13 +39,24 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
       post users_url, params: { user: { email: "email@email.ch", name: "Max Muster", password: 'secret', password_confirmation: 'secret' } }
     end
 
-    assert_redirected_to user_url(User.last)
+    assert_redirected_to tasks_index_path
+    assert_equal "User was successfully created. Please log in.", flash[:notice]
   end
 
 
-  test "should show user" do
+  test "logged in user should show user" do
+    # log in
+    sign_in_as(@desiree)
+    assert_equal "Login successfull", flash[:notice]
+
     get user_url(@desiree)
     assert_response :success
+  end
+
+  test "not logged in user should get redirected from show user to task index" do
+    get user_url(@desiree)
+    assert_redirected_to tasks_index_path
+    assert_equal "Please log in", flash[:notice]
   end
 
 
