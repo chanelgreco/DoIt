@@ -33,6 +33,15 @@ class DashboardControllerTest < ActionDispatch::IntegrationTest
     assert_select "h2", "Overdue Tasks"
   end
 
+  test "logged in user should see the upcoming tasks on the dashboard page" do
+    # log in
+    sign_in_as(@desiree)
+    assert_equal "Login successfull", flash[:notice]
+
+    get dashboard_url
+    assert_select "h2", "Upcoming Tasks"
+  end
+
 
   test "logged in user should get edit page" do
     # log in

@@ -15,3 +15,11 @@ learn_rails:
   status: 0
   due_date: <%= (Date.yesterday).to_s(:db) %>
   user: desiree
+
+read_code:
+  title: Read code
+  description: Master how to read code
+  priority: 0
+  status: 1
+  due_date: <%= (Date.tomorrow).to_s(:db) %>
+  user: roger

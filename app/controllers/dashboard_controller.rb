@@ -5,6 +5,7 @@ class DashboardController < ApplicationController
     # initial_dashboard
     set_dashboard
     @tasks_overdue = current_user.tasks.overdue
+    @tasks_upcoming = current_user.tasks.upcoming
   end
 
   # GET /dashboard/edit

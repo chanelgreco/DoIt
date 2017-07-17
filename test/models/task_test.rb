@@ -21,4 +21,9 @@ class TaskTest < ActiveSupport::TestCase
     assert_not @learn_ruby.overdue?
     assert @learn_rails.overdue?
   end
+
+  test "one task upcoming" do
+    assert_equal 1, Task.upcoming.count
+  end
+
 end
