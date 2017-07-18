@@ -2,7 +2,7 @@ require 'test_helper'
 
 class TaskTest < ActiveSupport::TestCase
   setup do
-    @learn_ruby, @learn_rails = tasks(:learn_ruby, :learn_rails)
+    @learn_ruby, @learn_rails, @learn_japanese = tasks(:learn_ruby, :learn_rails, :learn_japanese)
   end
 
   test "status valid" do
@@ -24,6 +24,10 @@ class TaskTest < ActiveSupport::TestCase
 
   test "one task upcoming" do
     assert_equal 1, Task.upcoming.count
+  end
+
+  test "tasks without due_date don't fail" do
+    assert_not @learn_japanese.overdue?
   end
 
 end

@@ -23,3 +23,10 @@ read_code:
   status: 1
   due_date: <%= (Date.tomorrow).to_s(:db) %>
   user: roger
+
+learn_japanese:
+  title: Learn Japanese
+  description: Learn how to speak Japanese
+  priority: 3
+  status: 0
+  user: desiree
