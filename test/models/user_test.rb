@@ -29,7 +29,7 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "tasks" do
-    assert_equal 2, @desiree.tasks.size
+    assert_equal 3, @desiree.tasks.size
   end
 
   test "initialize dashboard gets called" do

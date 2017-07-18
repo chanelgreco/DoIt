@@ -26,7 +26,9 @@ class Task < ApplicationRecord
 
   # Method to check if task is overdue
   def overdue?
-    self.due_date <= Date.today
+    if self.try(:due_date)
+      self.due_date <= Date.today
+    end
   end
 
   # Scope to show upcoming tasks with the status "To do" or "Doing it..."
