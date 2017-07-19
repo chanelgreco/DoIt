@@ -38,8 +38,7 @@ gem 'jbuilder', '~> 2.5'
  gem 'bcrypt', '~> 3.1.7'
 # Use SimpleCov for checking test coverage
 gem 'simplecov', :require => false, :group => :testbin
-# SendGrid is for sending the users emails
-gem 'sendgrid-ruby'
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
