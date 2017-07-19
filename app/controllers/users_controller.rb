@@ -30,6 +30,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     respond_to do |format|
       if @user.save
+        UserMailer.welcome_email(@user).deliver_later
         format.html { redirect_to tasks_index_path, notice: 'User was successfully created. Please log in.' }
         format.json { render :show, status: :created, location: @user }
       else
