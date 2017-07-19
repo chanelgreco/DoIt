@@ -36,7 +36,7 @@
 ehthumbs.db
 Thumbs.db
 
-secrets.yml
+config/secrets.yml
 db/development.sqlite3
 tmp/
 database.yml
