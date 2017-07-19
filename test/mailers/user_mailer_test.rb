@@ -1,7 +1,8 @@
 require 'test_helper'
 
 class UserMailerTest < ActionMailer::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test "user receives email" do
+    welcome_email
+    assert true
+  end
 end
