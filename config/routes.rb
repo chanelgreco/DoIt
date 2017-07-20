@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  root 'tasks#index', as: 'tasks_index'
+
   controller :sessions do
     get 'login' => :new
     post 'login' => :create
@@ -14,5 +16,9 @@ Rails.application.routes.draw do
     patch 'dashboard' => :update
   end
 
-  root 'tasks#index', as: 'tasks_index'
+  controller :admin do
+    get 'admin', to: 'admin#index', as: 'admin'
+  end
+
+
 end
