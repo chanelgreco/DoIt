@@ -39,6 +39,10 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
       post users_url, params: { user: { email: "email@email.ch", name: "Max Muster", password: 'secret', password_confirmation: 'secret' } }
     end
 
+    # Verify that email was sent
+    email = ActionMailer::Base.deliveries.last
+    assert_equal ["email@email.ch"], email.to
+
     assert_redirected_to tasks_index_path
     assert_equal "User was successfully created. Please log in.", flash[:notice]
   end
@@ -100,7 +104,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
       delete user_url(@desiree)
     end
     assert_equal "User was successfully destroyed.", flash[:notice]
-    assert_redirected_to users_url
+    assert_redirected_to logout_url
   end
 
   test "not logged in user should get redirected from destroy user to tasks index" do

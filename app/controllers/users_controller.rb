@@ -30,7 +30,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     respond_to do |format|
       if @user.save
-        UserMailer.welcome_email(@user).deliver_later
+        UserMailer.welcome_email(@user).deliver_now
         format.html { redirect_to tasks_index_path, notice: 'User was successfully created. Please log in.' }
         format.json { render :show, status: :created, location: @user }
       else
@@ -59,10 +59,17 @@ class UsersController < ApplicationController
   # DELETE /users/1.json
   def destroy
     set_user
-    @user.destroy
-    respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
-      format.json { head :no_content }
+    if @user == current_user
+      @user.destroy
+      respond_to do |format|
+        format.html { redirect_to logout_url, notice: 'User was successfully destroyed.' }
+        format.json { head :no_content }
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to tasks_index_url, notice: "You can't delete other users." }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
     end
   end
 
