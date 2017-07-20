@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  namespace :admin do
+    get 'base/index'
+  end
+
   root 'tasks#index', as: 'tasks_index'
 
   controller :sessions do
@@ -17,7 +21,8 @@ Rails.application.routes.draw do
   end
 
   controller :admin do
-    get 'admin', to: 'admin#index', as: 'admin'
+    get 'admin', to: 'base#index', as: 'admin'
+    root 'base#index'
   end
 
 
