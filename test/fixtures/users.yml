@@ -2,7 +2,7 @@
 
 desiree:
   name: Desirée Reyes
-  email: chanel.d.greco@gmail.com
+  email: d.r@gmail.com
   password_digest: <%= BCrypt::Password.create('secret') %>
 
 roger:

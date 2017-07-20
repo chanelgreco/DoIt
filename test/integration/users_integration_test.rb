@@ -3,6 +3,7 @@ require 'test_helper'
 class UsersControllerTest < ActionDispatch::IntegrationTest
   setup do
     @desiree = users(:desiree)
+    @roger = users(:roger)
   end
 
   test "should prompt for login" do
@@ -95,7 +96,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   end
 
 
-  test "logged in user should destroy user" do
+  test "logged in user should destroy her own user" do
     # log in
     sign_in_as(@desiree)
     assert_equal "Login successfull", flash[:notice]
@@ -105,6 +106,18 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     end
     assert_equal "User was successfully destroyed.", flash[:notice]
     assert_redirected_to logout_url
+  end
+
+  test "loggen in user should not be able to delte another user" do
+    # log in
+    sign_in_as(@desiree)
+    assert_equal "Login successfull", flash[:notice]
+
+    assert_no_difference('User.count') do
+      delete user_url(@roger)
+    end
+    assert_redirected_to tasks_index_url
+    assert_equal "You can't delete other users.", flash[:notice]
   end
 
   test "not logged in user should get redirected from destroy user to tasks index" do

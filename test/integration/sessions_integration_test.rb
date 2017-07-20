@@ -18,7 +18,7 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get destroy" do
-    delete logout_url
+    get logout_url
     assert_equal "Logged out", flash[:notice]
     assert_redirected_to tasks_index_url
   end
