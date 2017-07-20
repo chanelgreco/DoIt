@@ -57,6 +57,7 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   # Better Errors replaces the standard Rails error page with a much better and more useful error page. Read more: https://github.com/charliesome/better_errors
   gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
