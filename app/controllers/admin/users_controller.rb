@@ -51,9 +51,13 @@ class Admin::UsersController < ApplicationController
   # DELETE /admin/users/1
   # DELETE /admin/users/1.json
   def destroy
-    chosen_user.destroy
     respond_to do |format|
-      format.html { redirect_to admin_users_path, notice: 'User was successfully destroyed.' }
+      if chosen_user.email == 'admin@doit.com'
+        format.html { redirect_to admin_users_path, notice: 'The Administrator can not be deleted.' }
+      else
+        chosen_user.destroy
+        format.html { redirect_to admin_users_path, notice: 'User was successfully destroyed.' }
+      end
     end
   end
 

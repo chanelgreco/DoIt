@@ -10,3 +10,8 @@ roger:
   name: Roger Moorge
   email: r.m@gmail.com
   password_digest: <%= BCrypt::Password.create('secret') %>
+
+admin:
+  name: Administrator
+  email: admin@doit.com
+  password_digest: <%= BCrypt::Password.create('secret') %>

@@ -2,8 +2,7 @@ require 'test_helper'
 
 class Admin::UsersControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @desiree = users(:desiree)
-    @roger = users(:roger)
+    @desiree, @roger, @admin =  users(:desiree, :roger, :admin)
   end
 
   test "admin should get index" do
@@ -58,6 +57,14 @@ class Admin::UsersControllerTest < ActionDispatch::IntegrationTest
     delete admin_user_path(@roger)
     assert_redirected_to admin_users_path
     assert_equal 'User was successfully destroyed.', flash[:notice]
+  end
+
+  test "should not be able to destroy the Admininistrator user" do
+    # log in
+    sign_in_as(@desiree)
+    delete admin_user_path(@admin)
+    assert_redirected_to admin_users_path
+    assert_equal 'The Administrator can not be deleted.', flash[:notice]
   end
 
 end
