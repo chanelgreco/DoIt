@@ -12,23 +12,6 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   end
 
 
-  test "logged in user should get index" do
-    # log in
-    sign_in_as(@desiree)
-    assert_equal "Login successfull", flash[:notice]
-
-    # access example.com/users
-    get users_url
-    assert_response :success
-  end
-
-  test "not logged in user should get redirected from users index to tasks index" do
-    get users_url
-    assert_redirected_to tasks_index_url
-  end
-
-
-
   test "should get new" do
     get new_user_url
     assert_response :success

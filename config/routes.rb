@@ -13,7 +13,8 @@ Rails.application.routes.draw do
     get 'logout' => :destroy
   end
 
-  resources :users, :tasks
+  resources :users, only: [:show, :new, :edit, :create, :update, :destroy]
+  resources :tasks
 
   controller :dashboard do
     get 'dashboard' => :show
