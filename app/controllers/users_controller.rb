@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  #before_action :current_user, only: [:show, :edit, :update, :destroy]
+  before_action :require_admin, only: [:index]
   skip_before_action :authorize, only: [:new, :create]
 
   # GET /users

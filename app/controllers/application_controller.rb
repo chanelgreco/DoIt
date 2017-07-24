@@ -10,6 +10,12 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  # Check if the current user is an admin. If not, redirect them to the task index page
+  def require_admin
+    unless current_user.admin?
+      redirect_to tasks_index_path, notice: "You can not access the Administration interface"
+    end
+  end
 
   private
   # Helper to display the current logged in user
