@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to tasks_index_path, notice: "Login successfull"
     else
-      flash.now[:error] = "Login was not successfull"
+      flash.now[:error] = "Wrong password or email"
       render :new
     end
   end
