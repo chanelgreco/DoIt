@@ -3,7 +3,6 @@
 #
 
 
-
 admin = User.first_or_create!({
   name: "Administrator",
   email: "admin@doit.com",
@@ -13,7 +12,7 @@ admin = User.first_or_create!({
 
 tasks = Task.first_or_create!([{
   title: "Testing to do",
-  description: "This appears in the to do section.",
+  description: "This appears in the to do sectiomn.",
   priority: 0,
   status: 0,
   due_date: Date.new(2017, 7, 30),
@@ -21,7 +20,7 @@ tasks = Task.first_or_create!([{
   },
   {
   title: "Testing doing",
-  description: "This appears in the doing section.",
+  description: "This appears in the doingb section.",
   priority: 1,
   status: 1,
   due_date: Date.new(2017, 8, 30),
@@ -29,7 +28,7 @@ tasks = Task.first_or_create!([{
 },
 {
   title: "Testing done",
-  description: "This appears in the done section.",
+  description: "This appears in the dobne section.",
   priority: 2,
   status: 2,
   due_date: Date.new(2017, 8, 15),
