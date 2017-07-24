@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
 
-  namespace :admin do
-    get 'base/index'
-  end
-
   root 'tasks#index', as: 'tasks_index'
+
+  namespace :admin do
+    root 'base#index'
+    resources :users
+  end
 
   controller :sessions do
     get 'login' => :new
@@ -19,11 +20,5 @@ Rails.application.routes.draw do
     get 'dashboard/edit' => :edit
     patch 'dashboard' => :update
   end
-
-  namespace :admin do
-    get 'admin', to: 'base#index', as: 'admin'
-    root 'base#index'
-  end
-
 
 end
