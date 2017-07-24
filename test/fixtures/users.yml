@@ -4,6 +4,7 @@ desiree:
   name: Desirée Reyes
   email: d.r@gmail.com
   password_digest: <%= BCrypt::Password.create('secret') %>
+  admin: true
 
 roger:
   name: Roger Moorge
