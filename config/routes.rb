@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     patch 'dashboard' => :update
   end
 
-  controller :admin do
+  namespace :admin do
     get 'admin', to: 'base#index', as: 'admin'
     root 'base#index'
   end
