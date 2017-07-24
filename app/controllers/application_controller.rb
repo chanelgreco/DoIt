@@ -10,6 +10,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
+
   private
   # Helper to display the current logged in user
   def current_user
